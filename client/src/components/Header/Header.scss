@@ -1,0 +1,105 @@
+@import "../../css-config/mixins.scss";
+
+.header{
+    width: 100%;
+    padding: 0 1rem;
+    z-index: 99;
+    background-color: #212121;
+    color: white;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+
+    @include md {
+        padding: 0 2rem;
+    }
+
+    .navbar{
+        // position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0;
+        height: 4rem;
+        max-width: 1100px;
+        margin: 0 auto;
+
+        @include md {
+            padding:1rem;
+        }
+        .nav_left{
+            display: none;
+            list-style: none;
+            gap: 1.2rem;
+
+            @include md {
+                display: flex;
+            }
+
+            .nav_link{
+                text-decoration: none;
+                color: white;
+                font-size: .9rem;
+                cursor: pointer;
+            }
+        }
+
+        .nav_logo{
+            font-size: 1.5rem;
+            font-weight: 600;
+
+            @include md {
+                font-size: 1.8rem;
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+
+        .nav_right{
+            display: flex;
+            align-items: center;
+            font-size: 1.2rem;
+            gap: 1rem;
+
+            svg{
+                cursor: pointer;
+            }
+
+            .cart_icon{
+                position: relative;
+
+                span{
+                    min-width: 1rem;
+                    height: 16px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    position: absolute;
+                    top: -5px;
+                    right: -10px;
+                    background-color: #8e2de2;
+                    border-radius: 10px;
+                    font-size: 12px;
+                }
+            }
+
+        }
+    }
+
+    &.sticky_header{
+        position: sticky;
+        top: 0;
+        animation: stickyHeader .3s ease forwards;
+    }
+
+}
+
+
+@keyframes stickyHeader {
+    0%{
+        transform: translateY(-3rem);
+    }
+
+    100%{
+        transform: translateY(0);
+    }
+}
